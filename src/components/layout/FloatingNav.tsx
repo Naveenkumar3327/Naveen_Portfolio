@@ -66,7 +66,7 @@ export default function FloatingNav() {
         onMouseLeave={() => setIsHovered(false)}
         animate={{ width: isHovered ? 185 : 56 }}
         transition={{ type: "spring", stiffness: 350, damping: 28 }}
-        className="hidden md:flex fixed right-6 top-1/2 -translate-y-1/2 z-40 flex-col items-center py-6 rounded-2xl glass-panel-gold overflow-hidden"
+        className="hidden md:flex fixed left-6 top-1/2 -translate-y-1/2 z-40 flex-col items-center py-6 rounded-2xl glass-panel-gold overflow-hidden"
         style={{ height: "auto" }}
       >
         {/* Monogram branding */}
@@ -107,11 +107,11 @@ export default function FloatingNav() {
                   )}
                 </AnimatePresence>
 
-                {/* Active slider indicator line on the right side */}
+                {/* Active slider indicator line on the left side */}
                 {isSelfActive && (
                   <motion.div
                     layoutId="activeSideNav"
-                    className="absolute right-0 w-[3px] h-6 bg-gold-champagne rounded-l-md"
+                    className="absolute left-0 w-[3px] h-6 bg-gold-champagne rounded-r-md"
                     transition={{ type: "spring", stiffness: 350, damping: 28 }}
                   />
                 )}
@@ -124,7 +124,7 @@ export default function FloatingNav() {
       {/* MOBILE FLOATING HAMBURGER TOGGLE */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 right-4 z-40 w-11 h-11 rounded-full glass-panel-gold md:hidden flex items-center justify-center text-text-primary shadow-lg cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200"
+        className="fixed top-4 left-4 z-40 w-11 h-11 rounded-full glass-panel-gold md:hidden flex items-center justify-center text-text-primary shadow-lg cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200"
       >
         {isOpen ? <X className="w-5 h-5 text-gold-champagne" /> : <Menu className="w-5 h-5" />}
       </button>
@@ -144,11 +144,11 @@ export default function FloatingNav() {
 
             {/* Drawer Container */}
             <motion.div
-              initial={{ x: "100%" }}
+              initial={{ x: "-100%" }}
               animate={{ x: 0 }}
-              exit={{ x: "100%" }}
+              exit={{ x: "-100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed inset-y-0 right-0 z-40 w-64 bg-bg-secondary/95 backdrop-blur-xl border-l border-white/5 p-8 flex flex-col justify-between shadow-2xl md:hidden"
+              className="fixed inset-y-0 left-0 z-40 w-64 bg-bg-secondary/95 backdrop-blur-xl border-r border-white/5 p-8 flex flex-col justify-between shadow-2xl md:hidden"
             >
               <div>
                 {/* Monogram / Header */}
