@@ -36,13 +36,13 @@ export default function CustomCursor() {
     window.addEventListener("mousemove", handleMouseMove);
 
     const handleLinkHover = () => {
-      gsap.to(dot, { scale: 2, backgroundColor: "#00C896", duration: 0.2 });
-      gsap.to(ring, { scale: 1.6, borderColor: "#00C896", borderWidth: "1.5px", duration: 0.2 });
+      gsap.to(dot, { scale: 1.4, backgroundColor: "var(--emerald-mint)", duration: 0.2 });
+      gsap.to(ring, { scale: 1.2, borderColor: "var(--emerald-mint)", borderWidth: "1px", duration: 0.2 });
     };
 
     const handleLinkUnhover = () => {
-      gsap.to(dot, { scale: 1, backgroundColor: "#D4AF37", duration: 0.2 });
-      gsap.to(ring, { scale: 1, borderColor: "rgba(212, 175, 55, 0.4)", borderWidth: "1px", duration: 0.2 });
+      gsap.to(dot, { scale: 1, backgroundColor: "var(--gold-champagne)", duration: 0.2 });
+      gsap.to(ring, { scale: 1, borderColor: "var(--gold-champagne)", borderWidth: "1px", opacity: 0.3, duration: 0.2 });
     };
 
     // Attach listeners recursively to capture dynamically loaded elements
@@ -70,11 +70,11 @@ export default function CustomCursor() {
     <>
       <div
         ref={dotRef}
-        className="fixed top-0 left-0 w-2.5 h-2.5 rounded-full pointer-events-none z-50 bg-gold-champagne hidden md:block mix-blend-difference"
+        className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full pointer-events-none z-50 bg-gold-champagne hidden md:block mix-blend-difference"
       />
       <div
         ref={ringRef}
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-gold-champagne/40 pointer-events-none z-50 hidden md:block mix-blend-difference"
+        className="fixed top-0 left-0 w-6 h-6 rounded-full border border-gold-champagne/30 pointer-events-none z-50 hidden md:block mix-blend-difference"
       />
     </>
   );

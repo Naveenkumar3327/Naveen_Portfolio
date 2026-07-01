@@ -47,7 +47,7 @@ function GalaxyCore({ activeSkill, hoveredSkill, onHover, onClick }: {
       <group ref={coreRef}>
         <mesh onClick={() => onClick(coreSkill)}>
           <sphereGeometry args={[0.5, 32, 32]} />
-          <meshBasicMaterial color="#D4AF37" />
+          <meshBasicMaterial color="#6366f1" />
         </mesh>
         <Html distanceFactor={8} center position={[0, 0, 0]}>
           <div className="px-4 py-2 rounded-full border border-gold-champagne/30 bg-bg-primary/95 text-gold-champagne font-display font-semibold text-[11px] tracking-widest uppercase shadow-2xl shadow-gold-champagne/15 select-none whitespace-nowrap animate-pulse">
@@ -61,7 +61,7 @@ function GalaxyCore({ activeSkill, hoveredSkill, onHover, onClick }: {
         {/* Draw thin orbital path */}
         <mesh rotation={[Math.PI / 2, 0, 0]}>
           <ringGeometry args={[2.5, 2.52, 64]} />
-          <meshBasicMaterial color="rgba(212, 175, 55, 0.06)" side={THREE.DoubleSide} />
+          <meshBasicMaterial color="rgba(99, 102, 241, 0.12)" side={THREE.DoubleSide} />
         </mesh>
 
         {frontendSkills.map((skill, index) => {
@@ -83,7 +83,7 @@ function GalaxyCore({ activeSkill, hoveredSkill, onHover, onClick }: {
                 onPointerOut={() => onHover(null)}
               >
                 <sphereGeometry args={[0.12, 16, 16]} />
-                <meshBasicMaterial color={isSelected || isHovered ? "#00C896" : "rgba(212, 175, 55, 0.7)"} />
+                <meshBasicMaterial color={isSelected || isHovered ? "#0d9488" : "rgba(99, 102, 241, 0.7)"} />
               </mesh>
               <Html distanceFactor={7} center position={[0, 0.25, 0]}>
                 <button
@@ -108,7 +108,7 @@ function GalaxyCore({ activeSkill, hoveredSkill, onHover, onClick }: {
       <group ref={orbit2Ref}>
         <mesh rotation={[Math.PI / 2, 0, 0]}>
           <ringGeometry args={[4.2, 4.22, 64]} />
-          <meshBasicMaterial color="rgba(0, 200, 150, 0.05)" side={THREE.DoubleSide} />
+          <meshBasicMaterial color="rgba(13, 148, 136, 0.12)" side={THREE.DoubleSide} />
         </mesh>
 
         {backendSkills.map((skill, index) => {
@@ -130,7 +130,7 @@ function GalaxyCore({ activeSkill, hoveredSkill, onHover, onClick }: {
                 onPointerOut={() => onHover(null)}
               >
                 <sphereGeometry args={[0.14, 16, 16]} />
-                <meshBasicMaterial color={isSelected || isHovered ? "#F5E6A8" : "rgba(0, 200, 150, 0.7)"} />
+                <meshBasicMaterial color={isSelected || isHovered ? "#a5b4fc" : "rgba(13, 148, 136, 0.7)"} />
               </mesh>
               <Html distanceFactor={8} center position={[0, 0.25, 0]}>
                 <button
@@ -155,7 +155,7 @@ function GalaxyCore({ activeSkill, hoveredSkill, onHover, onClick }: {
       <group ref={orbit3Ref}>
         <mesh rotation={[Math.PI / 2, 0, 0]}>
           <ringGeometry args={[5.8, 5.82, 64]} />
-          <meshBasicMaterial color="rgba(255, 255, 255, 0.03)" side={THREE.DoubleSide} />
+          <meshBasicMaterial color="rgba(15, 23, 42, 0.08)" side={THREE.DoubleSide} />
         </mesh>
 
         {cloudSkills.map((skill, index) => {
@@ -177,7 +177,7 @@ function GalaxyCore({ activeSkill, hoveredSkill, onHover, onClick }: {
                 onPointerOut={() => onHover(null)}
               >
                 <sphereGeometry args={[0.15, 16, 16]} />
-                <meshBasicMaterial color={isSelected || isHovered ? "#00C896" : "rgba(255, 255, 255, 0.3)"} />
+                <meshBasicMaterial color={isSelected || isHovered ? "#0d9488" : "rgba(15, 23, 42, 0.4)"} />
               </mesh>
               <Html distanceFactor={9} center position={[0, 0.25, 0]}>
                 <button
@@ -214,7 +214,7 @@ export default function SkillsGalaxy() {
   return (
     <div className="w-full grid grid-cols-1 lg:grid-cols-4 gap-8 items-center min-h-[500px]">
       {/* 3D Viewport - 3 parts width */}
-      <div className="lg:col-span-3 h-[400px] md:h-[500px] border border-white/5 rounded-2xl bg-[#080808]/40 backdrop-blur-md overflow-hidden relative">
+      <div className="lg:col-span-3 h-[400px] md:h-[500px] border border-white/5 rounded-2xl bg-bg-secondary/40 backdrop-blur-md overflow-hidden relative">
         
         {/* Helper overlay */}
         <div className="absolute top-4 left-4 z-10 font-mono text-[9px] tracking-widest text-text-muted uppercase pointer-events-none select-none">
@@ -230,9 +230,9 @@ export default function SkillsGalaxy() {
             maxPolarAngle={Math.PI / 2.1}
             minPolarAngle={Math.PI / 4}
           />
-          <ambientLight intensity={0.5} />
-          <pointLight position={[5, 10, 5]} intensity={1.5} color="#D4AF37" />
-          <pointLight position={[-5, 5, -5]} intensity={1.0} color="#00C896" />
+          <ambientLight intensity={0.6} />
+          <pointLight position={[5, 10, 5]} intensity={1.5} color="#6366f1" />
+          <pointLight position={[-5, 5, -5]} intensity={1.0} color="#06b6d4" />
           
           <GalaxyCore
             activeSkill={activeSkill}

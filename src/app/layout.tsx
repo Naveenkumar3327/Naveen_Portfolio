@@ -46,7 +46,7 @@ export default function RootLayout({
       lang="en"
       className={`${outfit.variable} ${cinzel.variable} ${jetbrainsMono.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col bg-bg-primary text-white font-sans selection:bg-gold-champagne selection:text-bg-primary">
+      <body className="min-h-full flex flex-col bg-bg-primary text-text-primary font-sans">
         <SmoothScrollProvider>
           <CustomCursor />
           <AudioToggle />

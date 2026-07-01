@@ -70,17 +70,17 @@ function HeroVisuals() {
   return (
     <>
       {/* Lights */}
-      <ambientLight intensity={0.2} />
-      <pointLight position={[10, 10, 10]} intensity={1.5} color="#F5E6A8" />
-      <directionalLight position={[-5, 5, -5]} intensity={0.8} color="#00C896" />
-      <spotLight position={[0, 12, 0]} intensity={2.0} color="#D4AF37" angle={0.6} penumbra={0.5} />
+      <ambientLight intensity={0.5} />
+      <pointLight position={[10, 10, 10]} intensity={1.5} color="#a5b4fc" />
+      <directionalLight position={[-5, 5, -5]} intensity={0.8} color="#06b6d4" />
+      <spotLight position={[0, 12, 0]} intensity={2.0} color="#6366f1" angle={0.6} penumbra={0.5} />
 
       {/* Floating Glass Crystal */}
       <Float speed={2} rotationIntensity={1.5} floatIntensity={2}>
         <mesh ref={crystalRef} castShadow receiveShadow>
           <octahedronGeometry args={[2, 0]} />
           <meshPhysicalMaterial
-            color="#D4AF37"
+            color="#6366f1"
             metalness={0.15}
             roughness={0.08}
             transmission={0.85}
@@ -88,7 +88,7 @@ function HeroVisuals() {
             ior={1.6}
             clearcoat={1.0}
             clearcoatRoughness={0.1}
-            attenuationColor="#F5E6A8"
+            attenuationColor="#a5b4fc"
             attenuationDistance={1}
             transparent
             opacity={0.9}
@@ -101,7 +101,7 @@ function HeroVisuals() {
         <mesh ref={ringRef}>
           <torusGeometry args={[3.2, 0.02, 16, 100]} />
           <meshStandardMaterial
-            color="#D4AF37"
+            color="#6366f1"
             metalness={0.9}
             roughness={0.1}
             envMapIntensity={1.5}
@@ -119,7 +119,7 @@ function HeroVisuals() {
         </bufferGeometry>
         <pointsMaterial
           size={0.06}
-          color="#F5E6A8"
+          color="#a5b4fc"
           transparent
           opacity={0.7}
           sizeAttenuation

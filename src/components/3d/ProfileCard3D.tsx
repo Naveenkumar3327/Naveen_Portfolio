@@ -43,15 +43,15 @@ function CardVisuals() {
 
   return (
     <>
-      <ambientLight intensity={0.4} />
-      <pointLight position={[4, 4, 4]} intensity={1.5} color="#D4AF37" />
-      <pointLight position={[-4, -4, 4]} intensity={1.0} color="#00C896" />
+      <ambientLight intensity={0.6} />
+      <pointLight position={[4, 4, 4]} intensity={1.5} color="#6366f1" />
+      <pointLight position={[-4, -4, 4]} intensity={1.0} color="#06b6d4" />
 
       {/* Main Frosted Glass Slab */}
       <mesh ref={cardRef} castShadow receiveShadow>
         <boxGeometry args={[3.0, 4.2, 0.08]} />
         <meshPhysicalMaterial
-          color="#0f0f0f"
+          color="#f1f5f9"
           metalness={0.1}
           roughness={0.12}
           transmission={0.8}
@@ -67,19 +67,19 @@ function CardVisuals() {
         <group ref={innerRef} position={[0, 0, 0.02]}>
           <mesh>
             <ringGeometry args={[0.7, 0.72, 32]} />
-            <meshBasicMaterial color="#D4AF37" transparent opacity={0.6} side={THREE.DoubleSide} />
+            <meshBasicMaterial color="#6366f1" transparent opacity={0.6} side={THREE.DoubleSide} />
           </mesh>
           <mesh>
             <ringGeometry args={[0.45, 0.47, 4]} />
-            <meshBasicMaterial color="#00C896" transparent opacity={0.5} side={THREE.DoubleSide} />
+            <meshBasicMaterial color="#06b6d4" transparent opacity={0.5} side={THREE.DoubleSide} />
           </mesh>
           <mesh rotation={[0, 0, Math.PI / 4]}>
             <boxGeometry args={[1.1, 0.015, 0.01]} />
-            <meshBasicMaterial color="#D4AF37" transparent opacity={0.3} />
+            <meshBasicMaterial color="#6366f1" transparent opacity={0.3} />
           </mesh>
           <mesh rotation={[0, 0, -Math.PI / 4]}>
             <boxGeometry args={[1.1, 0.015, 0.01]} />
-            <meshBasicMaterial color="#D4AF37" transparent opacity={0.3} />
+            <meshBasicMaterial color="#6366f1" transparent opacity={0.3} />
           </mesh>
         </group>
       </mesh>
