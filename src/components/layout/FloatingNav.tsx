@@ -25,8 +25,8 @@ export default function FloatingNav() {
     // Active section tracking with IntersectionObserver
     const observerOptions = {
       root: null,
-      rootMargin: "-40% 0px -50% 0px", // triggers when section is in middle viewport
-      threshold: 0.1
+      rootMargin: "-15% 0px -35% 0px", // triggers when section occupies middle zone
+      threshold: 0
     };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
