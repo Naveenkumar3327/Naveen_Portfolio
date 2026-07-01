@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
 import { PROJECTS, Project } from '@/utils/data';
 import { ExternalLink, Layers } from 'lucide-react';
@@ -112,13 +112,47 @@ function ProjectCard({ project }: { project: Project }) {
 
 export default function Projects() {
   const [filter, setFilter] = useState("all");
+  const [projects, setProjects] = useState<Project[]>(PROJECTS);
+  const [loading, setLoading] = useState(true);
 
-  // Filter categorization mapping
-  const filteredProjects = PROJECTS.filter((p) => {
+  useEffect(() => {
+    async function fetchProjects() {
+      try {
+        const res = await fetch('/api/projects');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.success && Array.isArray(data.projects) && data.projects.length > 0) {
+            setProjects(data.projects);
+          }
+        }
+      } catch (err) {
+        console.warn("Failed to fetch dynamic projects from GitHub API, using fallback data.", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchProjects();
+  }, []);
+
+  // Filter categorization mapping using dynamic/fallback projects state
+  const filteredProjects = projects.filter((p) => {
     if (filter === "all") return true;
-    if (filter === "nextjs") return p.tech.includes("Next.js");
-    if (filter === "mern") return p.tech.includes("MongoDB") || p.tech.includes("Express.js") || p.tech.includes("React.js");
-    if (filter === "python") return p.tech.includes("Python");
+    
+    // Normalize checks for better matching with dynamic topics
+    const nextjsMatch = p.tech.some(t => t.toLowerCase() === 'next.js' || t.toLowerCase() === 'nextjs');
+    const mernMatch = p.tech.some(t => 
+      t.toLowerCase() === 'mongodb' || 
+      t.toLowerCase() === 'express.js' || 
+      t.toLowerCase() === 'expressjs' || 
+      t.toLowerCase() === 'react.js' || 
+      t.toLowerCase() === 'reactjs' ||
+      t.toLowerCase() === 'react'
+    );
+    const pythonMatch = p.tech.some(t => t.toLowerCase() === 'python' || t.toLowerCase() === 'django' || t.toLowerCase() === 'flask');
+
+    if (filter === "nextjs") return nextjsMatch;
+    if (filter === "mern") return mernMatch;
+    if (filter === "python") return pythonMatch;
     return true;
   });
 
