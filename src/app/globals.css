@@ -173,3 +173,52 @@ html.lenis, html.lenis body {
 .sound-bar:nth-child(4) { animation-delay: 0.45s; }
 .sound-bar:nth-child(5) { animation-delay: 0.05s; }
 
+/* Dynamic Running & Floating Tech Marquee Styles */
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+}
+
+.marquee-content {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: marquee-scroll 35s linear infinite;
+  padding: 1.5rem 0;
+}
+
+.marquee-content.reverse {
+  animation-direction: reverse;
+}
+
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+@keyframes skill-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.skill-card-float {
+  animation: skill-float 5s ease-in-out infinite;
+}
+
+.skill-card-float:nth-child(2n) {
+  animation-delay: 1s;
+}
+.skill-card-float:nth-child(3n) {
+  animation-delay: 2s;
+}
+.skill-card-float:nth-child(4n) {
+  animation-delay: 3s;
+}
+
