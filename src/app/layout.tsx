@@ -33,7 +33,10 @@ export const metadata: Metadata = {
     url: "https://naveen-kumar-d.vercel.app/",
     siteName: "Naveenkumar D Portfolio",
     type: "website"
-  }
+  },
+  verification: {
+    google: "lCB9Nzl7JUY0VLC6S5PiaPWWPJ1ip-jma6_I8ictuD4",
+  },
 };
 
 export default function RootLayout({
